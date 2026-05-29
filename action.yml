@@ -1,0 +1,32 @@
+name: 'Keel — Flaky Test Tracker'
+description: 'Track test flakiness across CI runs and get AI-powered root cause analysis'
+author: 'trykeel'
+
+inputs:
+  api-key:
+    description: 'Your Keel API key (from app settings)'
+    required: true
+  test-results-path:
+    description: 'Glob path to JUnit XML test results'
+    required: false
+    default: './test-results/**/*.xml'
+  framework:
+    description: 'Test framework: jest | pytest | rspec | cypress | auto'
+    required: false
+    default: 'auto'
+  api-url:
+    description: 'Keel API URL (override for self-hosted)'
+    required: false
+    default: 'https://keel-api-c4xp.onrender.com'
+
+outputs:
+  flaky-tests-found:
+    description: 'Number of flaky tests detected this run'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'activity'
+  color: 'blue'
