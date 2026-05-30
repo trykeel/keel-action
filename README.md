@@ -1,4 +1,4 @@
-# Keel == Flaky Test Tracker
+# Keel -- Flaky Test Tracker
 
 > Stop firefighting flaky tests. Keel detects, scores, and auto-quarantines flaky tests across every CI run — so your team ships faster with confidence.
 
