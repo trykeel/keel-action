@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 
 function getInput(name) {
-  return process.env[`INPUT_${name.toUpperCase().replace(/-/g, "_")}`] || "";
+  return process.env[`INPUT_${name.replace(/ /g, "_").toUpperCase()}`] || "";
 }
 
 // Pure Node.js recursive glob — no external deps
