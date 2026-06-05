@@ -84,6 +84,9 @@ function parseJUnitXML(filePath) {
       const nameMatch = attrs.match(/name="([^"]*)"/);
       const name = nameMatch ? nameMatch[1] : "unknown";
 
+      const classMatch = attrs.match(/classname="([^"]*)"/);
+      const filePath = classMatch ? classMatch[1] : suiteName || "unknown";
+
       const timeMatch = attrs.match(/time="([^"]*)"/);
       const durationMs = timeMatch
         ? Math.round(parseFloat(timeMatch[1]) * 1000)
@@ -112,7 +115,7 @@ function parseJUnitXML(filePath) {
         status = "skipped";
       }
 
-      tests.push({ name, suite: suiteName, status, durationMs, failureMessage });
+      tests.push({ name, suite: suiteName, filePath, status, durationMs, failureMessage });
     }
   }
 
